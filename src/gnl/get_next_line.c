@@ -6,7 +6,7 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 08:55:33 by ahouari           #+#    #+#             */
-/*   Updated: 2021/12/28 11:40:39 by ahouari          ###   ########.fr       */
+/*   Updated: 2021/12/29 09:53:38 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*change_text(char *text)
 		len++;
 	if (text[len] == '\0')
 	{
-		//free(text);
+	free(text);
 		return (NULL);
 	}
 	i = 0;
@@ -33,7 +33,7 @@ char	*change_text(char *text)
 	while (text[len++] != '\0')
 		newtext[i++] = text[len];
 	newtext[i] = '\0';
-	//free(text);
+	free(text);
 	return (newtext);
 }
 
@@ -77,13 +77,13 @@ char	*read_line(char *text, int fd)
 		n = read(fd, buff, BUFFER_SIZE);
 		if (n == -1)
 		{
-			//free(buff);
+			free(buff);
 			return (NULL);
 		}
 		buff[n] = '\0';
 		text = ft_strjoin_gnl(text, buff);
 	}
-	//free(buff);
+	free(buff);
 	return (text);
 }
 

@@ -11,27 +11,58 @@ int     game_keys(int keycode, meta_data *game)
     }
     if(keycode == 13)
     {
-        printf("---hero moved up--- \n");
+        
+        if(game->map[game->hero_pos.x - 1][game->hero_pos.y ] != '1')
+        {
+            game->hero_img = "assets/hero_up.xpm";
+            game->map[game->hero_pos.x] [game->hero_pos.y ]= '0';
+            game->old_pos.x = game->hero_pos.x;
+            game->old_pos.y = game->hero_pos.y;
+            game->map[game->hero_pos.x - 1 ][game->hero_pos.y ] = 'P';
+        }
         counter++;
         printf("key pressed is : %d !!!\n",counter);
     }
     if(keycode == 1)
     {
-        printf("---hero moved down--- \n");
+        game->hero_img = "assets/hero_down.xpm";
+        if(game->map[game->hero_pos.x + 1][game->hero_pos.y ] != '1')
+        {
+            game->map[game->hero_pos.x] [game->hero_pos.y ]= '0';
+            game->old_pos.x = game->hero_pos.x;
+            game->old_pos.y = game->hero_pos.y;
+            game->map[game->hero_pos.x + 1][game->hero_pos.y ] = 'P';
+        }
         counter++;
         printf("key pressed is : %d !!!\n",counter);
     }
     if(keycode == 0)
     {
-        printf("---hero moved left--- \n");
+        game->hero_img = "assets/hero_left.xpm";
+        if(game->map[game->hero_pos.x ][game->hero_pos.y -1 ] != '1')
+        {
+            game->map[game->hero_pos.x] [game->hero_pos.y ]= '0';
+            game->old_pos.x = game->hero_pos.x;
+            game->old_pos.y = game->hero_pos.y;
+            game->map[game->hero_pos.x ][game->hero_pos.y  - 1] = 'P';
+        }
         counter++;
         printf("key pressed is : %d !!!\n",counter);
     }
     if(keycode == 2)
     {
-        printf("---hero moved right--- \n");
+
+        game->hero_img = "assets/hero_right.xpm";
+        if(game->map[game->hero_pos.x ][game->hero_pos.y +1 ] != '1')
+        {
+            game->map[game->hero_pos.x] [game->hero_pos.y ]= '0';
+            game->old_pos.x = game->hero_pos.x;
+            game->old_pos.y = game->hero_pos.y;
+            game->map[game->hero_pos.x ][game->hero_pos.y  + 1] = 'P';
+        }
         counter++;
         printf("key pressed is : %d !!!\n",counter);
     }
     return(0);
 }
+

@@ -6,7 +6,7 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 08:55:54 by ahouari           #+#    #+#             */
-/*   Updated: 2021/12/28 11:40:50 by ahouari          ###   ########.fr       */
+/*   Updated: 2021/12/29 09:53:45 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 		dest[i] = s1[i];
 	while (j <= s2_len)
 		dest[i++] = s2[j++];
-	//free(s1);
+	free(s1);
 	return (dest);
 }

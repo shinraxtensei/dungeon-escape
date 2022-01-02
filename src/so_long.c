@@ -1,24 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/02 14:54:07 by ahouari           #+#    #+#             */
+/*   Updated: 2022/01/02 15:41:53 by ahouari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"so_long.h"
 
-
-
-
-
-
-
-int main (int ac  , char **av)
+int	main(int ac, char **av)
 {
-if(ac == 2)
-{
-meta_data game;
+	t_meta_data	game;
 
-game.mlx = mlx_init();
-map_manager(av[1] , &game);
-mlx_hook(game.win , 02, 0, game_keys , &game);
-mlx_loop_hook(game.mlx, render_map, &game);
-
-mlx_loop(game.mlx);
-  }
- return(0);
+	if (ac == 2)
+	{
+		game.mlx = mlx_init();
+		map_manager (av[1], &game);
+		mlx_hook (game.win, 02, 0, keys_manager, &game);
+		mlx_hook (game.win, 17, 0, game_keys, &game);
+		mlx_loop_hook (game.mlx, render_map, &game);
+		mlx_loop (game.mlx);
+	}
+	return (0);
 }
-

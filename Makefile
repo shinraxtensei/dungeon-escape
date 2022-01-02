@@ -1,6 +1,7 @@
 SO_LONG = so_long
 
-SRCS = ./src/so_long.c ./src/sl_utils/keys_manager.c ./src/sl_utils/map_manager.c
+SRCS = ./src/so_long.c ./src/sl_utils/keys_manager.c ./src/sl_utils/map_manager.c \
+		./src/sl_utils/movements.c ./src/sl_utils/errors_handler.c 
 
 GNL_SRCS = ./src/gnl/get_next_line_utils.c ./src/gnl/get_next_line.c
 

@@ -6,7 +6,7 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 08:55:33 by ahouari           #+#    #+#             */
-/*   Updated: 2021/12/29 09:53:38 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/01/06 09:21:42 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*change_text(char *text)
 		len++;
 	if (text[len] == '\0')
 	{
-	free(text);
+		free(text);
 		return (NULL);
 	}
 	i = 0;
@@ -95,6 +95,11 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	text = read_line(text, fd);
+	if (text[0] == '\n')
+	{
+		printf("map error, 9ad l map asahbi !!");
+		exit(1);
+	}
 	if (text == NULL)
 		return (NULL);
 	line = get_line(text);

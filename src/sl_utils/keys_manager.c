@@ -3,26 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   keys_manager.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahouari <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 15:13:05 by ahouari           #+#    #+#             */
-/*   Updated: 2022/01/02 15:16:21 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/01/04 12:55:27 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../so_long.h"
 
-int	game_keys(t_meta_data *game)
-{
-	mlx_destroy_window(game->mlx, game->win);
-	exit(0);
-	return (0);
-}
-
 int	keys_manager(int keycode, t_meta_data *game)
 {
+	game->img_path = "assets/floor.xpm";
 	if (keycode == 53)
-		game_keys(game);
+		close_game(game);
 	if (keycode == 13)
 		move_up(game);
 	if (keycode == 1)

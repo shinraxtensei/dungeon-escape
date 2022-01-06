@@ -6,24 +6,24 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 15:10:30 by ahouari           #+#    #+#             */
-/*   Updated: 2022/01/02 15:44:01 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/01/06 17:51:17 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../so_long.h"
 
-void	free_map(char **map)
+void	free_map(t_meta_data *game)
 {
 	int	i;
 
+	printf ("map error, 9ad l map asahbi !!");
 	i = 0;
-	printf("map error, 9ad l map asahbi !!");
-	while (map[i])
+	while (game->map[i])
 	{
-		free(map[i]);
+		free(game->map[i]);
 		i++;
 	}
-	free(map);
+	free(game->map);
 	exit(0);
 }
 
@@ -76,17 +76,17 @@ void	map_checker(t_meta_data *game)
 	while (game->map[++i])
 	{
 		if (game->dimensions.x == game->dimensions.y)
-			free_map(game->map);
+			free_map(game);
 		if (game->map[i][0] != '1'
 				|| game->map[i][game->dimensions.x - 1] != '1'
 				|| ft_strlen(game->map[i]) != game->dimensions.x)
-			free_map(game->map);
+			free_map(game);
 		if (i == 0 || i == game->dimensions.y - 1)
 			if (!check_walls(game->map[i]))
-				free_map(game->map);
+				free_map(game);
 		if (!check_colums(game->map[i], &c, &p, &e))
-			free_map(game->map);
+			free_map(game);
 	}
 	if (p != 1 || c < 1 || e < 1)
-		free_map(game->map);
+		free_map(game);
 }

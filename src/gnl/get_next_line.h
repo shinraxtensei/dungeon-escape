@@ -6,7 +6,7 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 08:56:14 by ahouari           #+#    #+#             */
-/*   Updated: 2021/12/27 14:53:34 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/01/06 08:37:25 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include "../libft/libft.h"
-
+# include <stdio.h>
 
 size_t	ft_strlen_gnl(char *str);
 char	*get_next_line(int fd);
@@ -31,8 +31,4 @@ char	*ft_strchr_gnl(char *str, int c);
 char	*read_line(char *result, int fd);
 char	*ft_strjoin_gnl(char *s1, char *s2);
 char	*ft_substr(char const	*s, unsigned int start, size_t len);
-
-
-
-
 #endif

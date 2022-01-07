@@ -6,33 +6,11 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 14:54:07 by ahouari           #+#    #+#             */
-/*   Updated: 2022/01/06 17:48:35 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/01/07 10:30:52 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long.h"
-
-static char	*ft_strstr(char *str, char *to_find)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	if (to_find[0] == '\0')
-		return (str);
-	while (str[i])
-	{
-		j = 0;
-		while (str[i + j] == to_find[j])
-		{
-			if (to_find[j + 1] == '\0')
-				return (str + i);
-			j++;
-		}
-		i++;
-	}
-	return (NULL);
-}
 
 int	main(int ac, char **av)
 {
@@ -40,7 +18,7 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		if (!ft_strstr(av[1], ".ber"))
+		if (!ft_strnstr(av[1], ".ber", ft_strlen(av[1])))
 		{
 			printf("fix the path bruh");
 			exit(1);
